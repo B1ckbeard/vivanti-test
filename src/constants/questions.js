@@ -65,11 +65,11 @@ const questions = [
     type: "dropdown",
     selectOptions: [
       {
-        value: "Каждый день",
+        value: "Каждый день (0 баллов)",
         score: 0,
       },
       {
-        value: "Не каждый день",
+        value: "Не каждый день (1 балл)",
         score: 1,
       },
     ],

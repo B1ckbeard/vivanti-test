@@ -1,5 +1,5 @@
-function Input() {
-  return <input type="text" className="text_input" id="text" name="text" placeholder="Текст" />;
+function Input({value, onChange}) {
+  return <input type="text" className="text_input" placeholder="Текст" value={value} onChange={onChange} />;
 }
 
 export default Input;
