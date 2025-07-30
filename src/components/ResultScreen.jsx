@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import ResultMetodology from "./ResultMetodology";
+import results from "../constants/resultScreenData";
+import Button from "./Button";
 
-function ResultScreen() {
+function ResultScreen({ onShowMetodology, onRestart }) {
   const [answers, setAnswers] = useState([]);
 
   const calculateAgeScore = (age) => {
@@ -46,26 +47,46 @@ function ResultScreen() {
   }, []);
 
   const calculateTotalScore = () => {
-    console.log(answers)
-    console.log(answers.reduce((total, answer) => total + (answer.score), 0)) 
+    const totalScore = answers.reduce(
+      (total, answer) => total + answer.score,
+      0
+    );
+    return totalScore;
   };
 
-  calculateTotalScore();
+  const getResult = () => {
+    const totalScore = calculateTotalScore();
+    if (totalScore < 7) return results[0];
+    if (totalScore < 12) return results[1];
+    if (totalScore <= 14) return results[2];
+    if (totalScore <= 20) return results[3];
+    return results[4];
+  };
 
   return (
-    <>
-      <h4>Результат</h4>
-      <p>description</p>
-      <ul>
-        {answers.map((a) => (
-          <li key={a.id}>
-            ID:{a.id}, value: {a.value}, score: {a.score}
-          </li>
-        ))}
-      </ul>
-      <button>Методология подсчета результата</button>
-      <button>Пройти тест заново</button>
-    </>
+    <div className="question_block__wrapper">
+      <div className="question_block__group">
+        <div className="question_block__text">
+          <h4>Результат</h4>
+          <p className="question_block__description">{getResult().risk}</p>
+          <p className="question_block__description">
+            {getResult().description}
+          </p>
+        </div>
+        <div className="btn_group">
+          <Button
+            text={"Методология подсчета результата"}
+            onClick={onShowMetodology}
+          />
+          <Button text={"Пройти тест заново"} onClick={onRestart} />
+        </div>
+      </div>
+      <img
+        className="question_block__img"
+        src={`src/assets/question_img1-min.png`}
+        alt="question_img"
+      />
+    </div>
   );
 }
 

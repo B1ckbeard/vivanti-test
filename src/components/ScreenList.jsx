@@ -3,6 +3,7 @@ import StartScreen from "./StartScreen";
 import QuestionScreen from "./QuestionScreen";
 import ResultScreen from "./ResultScreen";
 import questions from "../constants/questions";
+import ResultMetodology from "./ResultMetodology";
 
 function ScreenList() {
   const [currentScreenType, setCurrentScreenType] = useState("start");
@@ -12,7 +13,7 @@ function ScreenList() {
     setCurrentScreenType("question");
   };
 
-  const handleNext = () => {
+  const handleClickNext = () => {
     if (currentQuestionIndex < questions.length - 1) {
       setCurrentQuestionIndex((prev) => prev + 1);
     } else if (currentQuestionIndex === questions.length - 1) {
@@ -20,27 +21,53 @@ function ScreenList() {
     }
   };
 
-  const handleBack = () => {
+  const handleClickBack = () => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prev) => prev - 1);
     }
   };
 
+  const handleClickMetodology = () => {
+    setCurrentScreenType("metodology");
+  };
+
+  const handleClickRestart = () => {
+    setCurrentScreenType("start");
+    setCurrentQuestionIndex(0);
+    localStorage.removeItem("diabetesAnswers");
+  };
+
+  const handleClickBackMetodology = () => {
+    setCurrentScreenType("result");
+  };
+
   return (
-    <div className="question_block">
-      {currentScreenType === "start" && (
-        <StartScreen onClick={handleClickStart} />
+    <>
+      {currentScreenType !== "metodology" && (
+        <div className="question_block">
+          {currentScreenType === "start" && (
+            <StartScreen onClick={handleClickStart} />
+          )}
+          {currentScreenType === "question" && (
+            <QuestionScreen
+              data={questions[currentQuestionIndex]}
+              questionsLength={questions.length}
+              onClickNext={handleClickNext}
+              onClickBack={handleClickBack}
+            />
+          )}
+          {currentScreenType === "result" && (
+            <ResultScreen
+              onShowMetodology={handleClickMetodology}
+              onRestart={handleClickRestart}
+            />
+          )}
+        </div>
       )}
-      {currentScreenType === "question" && (
-        <QuestionScreen
-          data={questions[currentQuestionIndex]}
-          questionsLength={questions.length}
-          onClickNext={handleNext}
-          onClickBack={handleBack}
-        />
+      {currentScreenType === "metodology" && (
+        <ResultMetodology onBack={handleClickBackMetodology} />
       )}
-      {currentScreenType === "result" && <ResultScreen />}
-    </div>
+    </>
   );
 }
 

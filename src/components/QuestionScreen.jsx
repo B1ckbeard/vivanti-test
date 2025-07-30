@@ -52,7 +52,42 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
 
   const handleCheckboxChange = (optionValue, isChecked, score) => {
     setAnswers((prevState) => {
+      const currentQuestionAnswers = prevState.filter(
+        (answer) => answer.id === data.id
+      );
+
       const otherAnswers = prevState.filter((answer) => answer.id !== data.id);
+      if (data.id === 8) {
+        const selectedType = optionValue === "Нет" ? "no" : "yes";
+        if (isChecked) {
+          if (selectedType === "no") {
+            return [
+              ...otherAnswers,
+              { id: data.id, value: optionValue, score },
+            ];
+          } else {
+            const yesAnswersCount = currentQuestionAnswers.filter(
+              (a) => a.value !== "Нет"
+            ).length;
+            if (yesAnswersCount < 2) {
+              const filtered = currentQuestionAnswers.filter(
+                (a) => a.value !== "Нет"
+              );
+              return [
+                ...otherAnswers,
+                ...filtered,
+                { id: data.id, value: optionValue, score },
+              ];
+            }
+            return prevState;
+          }
+        } else {
+          return prevState.filter(
+            (a) => !(a.id === data.id && a.value === optionValue)
+          );
+        }
+      }
+
       if (isChecked) {
         return [
           ...otherAnswers,
