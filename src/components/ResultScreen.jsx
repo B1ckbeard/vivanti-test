@@ -44,6 +44,7 @@ function ResultScreen({ onShowMetodology, onRestart }) {
       setAnswers(JSON.parse(savedAnswers));
       calculateInputScores();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const calculateTotalScore = () => {
@@ -64,16 +65,18 @@ function ResultScreen({ onShowMetodology, onRestart }) {
   };
 
   return (
-    <div className="question_block__wrapper">
-      <div className="question_block__group">
-        <div className="question_block__text">
-          <h4>Результат</h4>
-          <p className="question_block__description">{getResult().risk}</p>
-          <p className="question_block__description">
+    <div className="p-[25px] max-[900px]:px-[18px] max-[900px]:pb-[0] flex max-[900px]:flex-col-reverse justify-between max-[900px]:items-center">
+      <div className="text-left max-w-[820px]">
+
+        <div className="mb-[40px] max-[900px]:mb-[32px]">
+          <h4 className="text-[20px] leading-[28px] font-bold mb-[16px]">Результат</h4>
+          <p className="text-[18px] leading-[24px] mb-[16px]">{getResult().risk}</p>
+          <p className="text-[18px] leading-[24px]">
             {getResult().description}
           </p>
         </div>
-        <div className="btn_group">
+
+        <div className="btn_group gap-[38px] max-[900px]:text-center max-[900px]:mb-[40px]">
           <Button
             text={"Методология подсчета результата"}
             onClick={onShowMetodology}
@@ -82,7 +85,7 @@ function ResultScreen({ onShowMetodology, onRestart }) {
         </div>
       </div>
       <img
-        className="question_block__img"
+        className="w-[284px] h-[282px] right-0 max-[900px]:mb-[32px]"
         src={`src/assets/question_img1-min.png`}
         alt="question_img"
       />

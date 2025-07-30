@@ -22,6 +22,9 @@ function ScreenList() {
   };
 
   const handleClickBack = () => {
+    if (currentScreenType === "question" && currentQuestionIndex === 0) {
+      setCurrentScreenType("start")
+    }
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prev) => prev - 1);
     }
@@ -44,7 +47,7 @@ function ScreenList() {
   return (
     <>
       {currentScreenType !== "metodology" && (
-        <div className="question_block">
+        <div className="mx-auto max-w-[1224px] h-auto bg-[#F0F0F5]">
           {currentScreenType === "start" && (
             <StartScreen onClick={handleClickStart} />
           )}

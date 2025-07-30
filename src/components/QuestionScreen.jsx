@@ -114,6 +114,7 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
                         type="checkbox"
                         id={op.value}
                         name={op.value}
+                        className="mr-[8px]"
                         checked={answers.some(
                           (a) => a.id === data.id && a.value === op.value
                         )}
@@ -134,6 +135,7 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
                       type="checkbox"
                       id={option.value}
                       name={option.value}
+                      className="mr-[8px]"
                       checked={answers.some(
                         (a) => a.id === data.id && a.value === option.value
                       )}
@@ -159,7 +161,7 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
               value={currentAnswer?.value ?? ""}
               onChange={(e) => handleInputChange(e.target.value)}
             />
-            <p className="input_description">{data.inputDescription}</p>
+            <p className="text-[13px] leading-[16px] text-[#707075] text-balance max-w-[343px]">{data.inputDescription}</p>
           </div>
         );
       case "dropdown":
@@ -186,16 +188,18 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
 
   return (
     <>
-      <div className="question_block__wrapper">
-        <div className="question_block__group">
-          <div className="question_block__text">
-            <h4>
+      <div className="p-[25px] max-[900px]:px-[18px] max-[900px]:pb-[0] flex max-[900px]:flex-col-reverse justify-between max-[900px]:items-center">
+        <div className="text-left max-w-[820px]">
+
+          <div className="text-[18px] leading-[24px] mb-[40px] max-[900px]:mb-[32px]">
+            <h4 className="text-[20px] font-bold leading-[28px] mb-[24px]">
               Вопрос {data.id}/{questionsLength}
             </h4>
-            <p className="question_block__description">{data.description}</p>
+            <p className="text-[18px] leading-[24px] mb-[14px]">{data.description}</p>
             {renderInput()}
           </div>
-          <div className="btn_group">
+
+          <div className="btn_group gap-[38px] max-[900px]:text-center max-[900px]:mb-[40px]">
             <Button text={"Назад"} onClick={onClickBack} />
             <Button
               text={"Далее"}
@@ -205,7 +209,7 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
           </div>
         </div>
         <img
-          className="question_block__img"
+          className="w-[284px] h-[282px] right-0 max-[900px]:mb-[32px]"
           src={`src/assets/question_img${data.img_id}-min.png`}
           alt="question_img"
         />

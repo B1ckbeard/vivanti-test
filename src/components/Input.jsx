@@ -1,5 +1,13 @@
-function Input({value, onChange}) {
-  return <input type="text" className="text_input" placeholder="Текст" value={value} onChange={onChange} />;
+function Input({ value, onChange }) {
+  return (
+    <input
+      type="text"
+      className="w-[386px] h-[52px] mb-[8px] text-[18px] leading-[24px] border bg-white px-[16px] py-[14px]"
+      placeholder="Текст"
+      value={value}
+      onChange={onChange}
+    />
+  );
 }
 
 export default Input;
