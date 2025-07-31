@@ -6,7 +6,7 @@ function Footer() {
           <h4 className="mb-[16px]">СВЯЖИТЕСЬ С НАМИ</h4>
           <div className="flex mb-[16px]">
             <img
-              src="src/assets/icon_contacts.png"
+              src="assets/icon_contacts.png"
               alt="icon_contacts"
               className="w-[24px] mr-[10px]"
             />
@@ -14,7 +14,7 @@ function Footer() {
           </div>
           <div className="flex">
             <img
-              src="src/assets/icon_location.png"
+              src="assets/icon_location.png"
               alt="icon_location"
               className="w-[24px] mr-[10px]"
             />
