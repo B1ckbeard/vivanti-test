@@ -76,12 +76,12 @@ function ResultScreen({ onShowMetodology, onRestart }) {
           </p>
         </div>
 
-        <div className="btn_group gap-[38px] max-[900px]:text-center max-[900px]:mb-[40px]">
+        <div className="btn_group flex flex-row max-[900px]:flex-col-reverse max-[900px]:items-center gap-[38px] max-[900px]:gap-[24px] max-[900px]:text-center max-[900px]:mb-[40px]">
           <Button
-            text={"Методология подсчета результата"}
+            type={"metodology"}
             onClick={onShowMetodology}
           />
-          <Button text={"Пройти тест заново"} onClick={onRestart} />
+          <Button type={"restart"} onClick={onRestart} />
         </div>
       </div>
       <img

@@ -3,7 +3,7 @@
 /* dropdown */
 
 .dropdown {
-  width: 343px;
+  /*width: 343px;*/
   height: 40px;
   font-size: 18px;
   color: #707075;
@@ -22,9 +22,4 @@
 
 .dropdown option:checked {
   background: #E46F50;
-}
-
-/* buttons */
-.btn_group > button:first-child {
-  margin-right: 38px;
 }

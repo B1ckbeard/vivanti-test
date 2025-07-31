@@ -2,7 +2,7 @@ import Button from "./Button";
 
 function ResultMetodology({ onBack }) {
   return (
-    <>
+    <div className="flex flex-col items-center mb-[10px] max-[900px]:mb-[0]">
       <table className="mx-auto mb-[40px] max-[900px]:mb-[32px] border border-collapse border-[#0D446C] w-full max-w-[1008px]">
         <thead className="pt-[20px]">
           <tr className="bg-[#0D446C] text-white text-[18px] max-[900px]:text-[14px] h-[70px]">
@@ -63,7 +63,7 @@ function ResultMetodology({ onBack }) {
               {"<"}12
             </p>
           </div>
-          <p className="">
+          <p>
             Общее количество баллов менее 12. У Вашего пациента хорошее
             здоровье. Рекомендуется продолжать вести здоровый образ жизни!
           </p>
@@ -99,7 +99,7 @@ function ResultMetodology({ onBack }) {
               15-20
             </p>
           </div>
-          <p className="">
+          <p>
             Общее количество баллов 15—20. Возможно, у Вашего пациента предиабет
             или сахарный диабет 2 типа. Порекомендуйте ему проверить уровень
             глюкозы (сахара) в крови. Пациенту необходимо дать рекомендации по
@@ -120,7 +120,7 @@ function ResultMetodology({ onBack }) {
               {">"}20
             </p>
           </div>
-          <p className="">
+          <p>
             Общее количество баллов более 20. По всей вероятности у Вашего
             пациента сахарный диабет 2 типа. Проверьте у него уровень глюкозы
             (сахара) в крови и постарайтесь его нормализовать. Пациенту
@@ -129,8 +129,8 @@ function ResultMetodology({ onBack }) {
           </p>
         </div>
       </div>
-      <Button text={"Назад"} onClick={onBack} />
-    </>
+        <Button type={"back"} onClick={onBack} />
+    </div>
   );
 }
 

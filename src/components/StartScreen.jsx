@@ -13,7 +13,7 @@ function StartScreen({ onClick }) {
           </div>
 
           <div className="max-[900px]:text-center max-[900px]:mb-[40px]">
-            <Button text={"Начать"} onClick={onClick} />
+            <Button type={'start'} onClick={onClick} />
           </div>
         </div>
         <img
