@@ -1,7 +1,6 @@
 {
   "name": "vivanti-test",
   "private": true,
-  "homepage": "https://b1ckbeard.github.io/vivanti-test/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
