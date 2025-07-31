@@ -57,7 +57,7 @@ function ResultMetodology({ onBack }) {
         <div className="flex flex-row max-[900px]:flex-col items-center max-[900px]:items-start">
           <div className="flex flex-col max-[900px]:flex-row max-[900px]:items-center mr-[24px] max-[900px]:mr-[0px] max-[900px]:mb-[16px]">
             <div className="w-[80px] h-[80px] max-[900px]:mr-[10px]">
-              <img src="src/assets/circle1.png" alt="circle1" />
+              <img src="assets/circle1.png" alt="circle1" />
             </div>
             <p className="text-[24px] text-[#6C76BC] text-center font-extrabold">
               {"<"}12
@@ -72,7 +72,7 @@ function ResultMetodology({ onBack }) {
           <div className="flex flex-col max-[900px]:flex-row max-[900px]:items-center mr-[24px] max-[900px]:mr-[0px] max-[900px]:mb-[16px]">
             <div className="w-[80px] h-[80px] max-[900px]:mr-[10px]">
               <img
-                src="src/assets/circle2.png"
+                src="assets/circle2.png"
                 alt="circle2"
                 className="w-[80px] h-[80px]"
               />
@@ -90,7 +90,7 @@ function ResultMetodology({ onBack }) {
           <div className="flex flex-col max-[900px]:flex-row max-[900px]:items-center mr-[24px] max-[900px]:mr-[0px] max-[900px]:mb-[16px]">
             <div className="w-[80px] h-[80px] max-[900px]:mr-[10px]">
               <img
-                src="src/assets/circle3.png"
+                src="assets/circle3.png"
                 alt="circle3"
                 className="w-[80px] h-[80px]"
               />
@@ -111,7 +111,7 @@ function ResultMetodology({ onBack }) {
           <div className="flex flex-col max-[900px]:flex-row max-[900px]:items-center mr-[24px] max-[900px]:mr-[0px] max-[900px]:mb-[16px]">
             <div className="w-[80px] h-[80px] max-[900px]:mr-[10px]">
               <img
-                src="src/assets/circle4.png"
+                src="assets/circle4.png"
                 alt="circle4"
                 className="w-[80px] h-[80px]"
               />

@@ -16,17 +16,17 @@ function Button({ type = null, onClick, disabled = false }) {
   const icons = {
     next: { src: "assets/next.png", alt: "next", className: "ml-[12px]" },
     back: {
-      src: "src/assets/back.png",
+      src: "assets/back.png",
       alt: "back",
       className: "mr-[12px] hover:filter hover:text-[#F1B287]",
     },
     metodology: {
-      src: "src/assets/metodology.png",
+      src: "assets/metodology.png",
       alt: "metodology",
       className: "mr-[7px]",
     },
     restart: {
-      src: "src/assets/restart.png",
+      src: "assets/restart.png",
       alt: "restart",
       className: "mr-[12px]",
     },

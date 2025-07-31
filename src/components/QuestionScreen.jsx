@@ -271,7 +271,7 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
         <div className="flex items-center">
           <img
             className="w-[284px] h-[282px] right-0 max-[900px]:mb-[32px]"
-            src={`src/assets/question_img${data.img_id}-min.png`}
+            src={`assets/question_img${data.img_id}-min.png`}
             alt="question_img"
           />
         </div>
