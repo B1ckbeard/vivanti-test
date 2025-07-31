@@ -14,7 +14,7 @@ function App() {
           </h1>
           <div className="max-w-[1224px] max-h-[340px] mb-[40px] max-[900px]:mb-[32px]">
             <img
-              src="src/assets/banner-min.png"
+              src="assets/banner-min.png"
               alt="banner"
             />
           </div>
