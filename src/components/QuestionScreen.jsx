@@ -187,15 +187,19 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
         );
       case "dropdown":
         return (
-          <div className="mx-auto">
+          <div className="mx-auto max-[900px]:max-w-[343px]">
             <select
-              className="dropdown max-w-[343px] w-full"
+              className="max-w-[343px] w-full h-[44px] text-[18px] text-[#707075] bg-white border-2 border-[#E46F50] focus:outline-none focus:border-[#E46F50]"
               name="dropdown"
               id="dropdown"
               onChange={(e) => handleDropdownChange(e.target.value)}
             >
               {data.selectOptions.map((option) => (
-                <option key={option.value} value={option.value}>
+                <option
+                  key={option.value}
+                  value={option.value}
+                  className="text-black bg-white hover:bg-[#E46F50] checked:bg-[#E46F50]"
+                  >
                   {option.value}
                 </option>
               ))}
