@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ScreenLayout from "./ScreenLayout";
 import Button from "./Button";
 import Input from "./Input";
 
@@ -161,8 +162,9 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
                     ))}
                   </div>
                 ) : (
-                  <div className="grid auto-cols-max grid-flow-col items-center">
+                  <div className="flex justify-start items-center">
                     <input
+                      //grid auto-cols-max grid-flow-col items-center
                       type="checkbox"
                       id={option.value}
                       name={option.value}
@@ -253,53 +255,50 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
     );
   };
 
-  return (
-    <>
-      <div className="p-[25px] max-[900px]:pt-[18px] max-[900px]:px-[18px] flex max-[900px]:flex-col-reverse justify-between max-[900px]:items-center">
-        <div className="text-left max-w-[820px]">
-          <div className="text-[18px] leading-[24px] mb-[32px] max-[900px]:mb-[32px]">
-            <h4 className="text-[20px] font-bold leading-[28px] mb-[24px]">
-              Вопрос {data.id}/{questionsLength}
-            </h4>
-            {data.description2 ? (
-              <div className="mb-[32px]">
-                <p className="text-[18px] leading-[24px] mb-[11px]">
-                  {data.description}
-                </p>
-                <p className="text-[18px] leading-[24px]">
-                  {addLinkToLastWords(
-                    data.description2,
-                    2,
-                    "https://clinic-cvetkov.ru/company/kalkulyator-imt/"
-                  )}
-                </p>
-              </div>
-            ) : (
-              <p className="text-[18px] leading-[24px] mb-[24px]">
+  const renderScreen = () => {
+    return (
+      <>
+        <div className="text-[18px] leading-[24px] mb-[32px] max-[900px]:mb-[32px]">
+          <h4 className="text-[20px] font-bold leading-[28px] mb-[24px]">
+            Вопрос {data.id}/{questionsLength}
+          </h4>
+          {data.description2 ? (
+            <div className="mb-[32px]">
+              <p className="text-[18px] leading-[24px] mb-[11px]">
                 {data.description}
               </p>
-            )}
-            {renderInput()}
-          </div>
-
-          <div className="btn_group flex flex-row max-[900px]:flex-col-reverse max-[900px]:items-center gap-[38px] max-[900px]:gap-[24px] max-[900px]:text-center mb-[25px] max-[900px]:mb-[15px]">
-            <Button type={"back"} onClick={onClickBack} />
-            <Button
-              type={"next"}
-              onClick={onClickNext}
-              disabled={!answers.some((a) => a.id === data.id)}
-            />
-          </div>
+              <p className="text-[18px] leading-[24px]">
+                {addLinkToLastWords(
+                  data.description2,
+                  2,
+                  "https://clinic-cvetkov.ru/company/kalkulyator-imt/"
+                )}
+              </p>
+            </div>
+          ) : (
+            <p className="text-[18px] leading-[24px] mb-[24px]">
+              {data.description}
+            </p>
+          )}
+          {renderInput()}
         </div>
-        <div className="flex items-center">
-          <img
-            className="w-[284px] h-[282px] right-0 max-[900px]:mb-[32px]"
-            src={`assets/question_img${data.img_id}-min.png`}
-            alt="question_img"
+
+        <div className="btn_group flex flex-row max-[900px]:flex-col-reverse max-[900px]:items-center gap-[38px] max-[900px]:gap-[24px] max-[900px]:text-center mb-[25px] max-[900px]:mb-[40px]">
+          <Button type={"back"} onClick={onClickBack} />
+          <Button
+            type={"next"}
+            onClick={onClickNext}
+            disabled={!answers.some((a) => a.id === data.id)}
           />
         </div>
-      </div>
-    </>
+      </>
+    );
+  };
+  return (
+    <ScreenLayout
+      children={renderScreen()}
+      img={`assets/question_img${data.img_id}-min.png`}
+    />
   );
 }
 
