@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./components/Footer";
-import ScreenList from "./components/ScreenList";
+import AppRouter from "./components/AppRouter";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
               alt="banner"
             />
           </div>
-          <ScreenList />
+          <AppRouter />
         </div>
       </main>
       <Footer />

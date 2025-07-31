@@ -4,8 +4,9 @@ import QuestionScreen from "./QuestionScreen";
 import ResultScreen from "./ResultScreen";
 import questions from "../constants/questions";
 import ResultMetodology from "./ResultMetodology";
+//import { motion, AnimatePresence  } from "framer-motion";
 
-function ScreenList() {
+function AppRouter() {
   const [currentScreenType, setCurrentScreenType] = useState("start");
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
@@ -23,7 +24,7 @@ function ScreenList() {
 
   const handleClickBack = () => {
     if (currentScreenType === "question" && currentQuestionIndex === 0) {
-      setCurrentScreenType("start")
+      setCurrentScreenType("start");
     }
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prev) => prev - 1);
@@ -46,32 +47,32 @@ function ScreenList() {
 
   return (
     <>
-      {currentScreenType !== "metodology" && (
-        <div className="mx-auto max-w-[1224px] h-auto bg-[#F0F0F5]">
-          {currentScreenType === "start" && (
-            <StartScreen onClick={handleClickStart} />
-          )}
-          {currentScreenType === "question" && (
-            <QuestionScreen
-              data={questions[currentQuestionIndex]}
-              questionsLength={questions.length}
-              onClickNext={handleClickNext}
-              onClickBack={handleClickBack}
-            />
-          )}
-          {currentScreenType === "result" && (
-            <ResultScreen
-              onShowMetodology={handleClickMetodology}
-              onRestart={handleClickRestart}
-            />
-          )}
-        </div>
-      )}
-      {currentScreenType === "metodology" && (
-        <ResultMetodology onBack={handleClickBackMetodology} />
-      )}
+        {currentScreenType !== "metodology" && (
+          <div className="mx-auto max-w-[1224px] h-auto bg-[#F0F0F5]">
+            {currentScreenType === "start" && (
+              <StartScreen onClick={handleClickStart} />
+            )}
+            {currentScreenType === "question" && (
+              <QuestionScreen
+                data={questions[currentQuestionIndex]}
+                questionsLength={questions.length}
+                onClickNext={handleClickNext}
+                onClickBack={handleClickBack}
+              />
+            )}
+            {currentScreenType === "result" && (
+              <ResultScreen
+                onShowMetodology={handleClickMetodology}
+                onRestart={handleClickRestart}
+              />
+            )}
+          </div>
+        )}
+        {currentScreenType === "metodology" && (
+          <ResultMetodology onBack={handleClickBackMetodology} />
+        )}
     </>
   );
 }
 
-export default ScreenList;
+export default AppRouter;

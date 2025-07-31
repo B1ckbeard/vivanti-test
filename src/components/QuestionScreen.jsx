@@ -297,7 +297,7 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
   return (
     <ScreenLayout
       children={renderScreen()}
-      img={`assets/question_img${data.img_id}-min.png`}
+      img={`assets/question_img${data.imageId}-min.png`}
     />
   );
 }

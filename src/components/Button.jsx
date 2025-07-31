@@ -5,7 +5,7 @@ function Button({ type = null, onClick, disabled = false }) {
   const typeClasses = {
     start:
       "w-[360px] bg-[#E46F50] text-white text-[26px] max-[900px]:text-[23px] leading-[36px] hover:bg-[#F1B287] focus:bg-[#E46F50]",
-    next: "w-[360px] bg-[#E46F50] text-white text-[26px] max-[900px]:text-[23px] leading-[36px] hover:bg-[#F1B287] focus:bg-[#E46F50] disabled:bg-[#f0cac0]",
+    next: "w-[360px] bg-[#E46F50] text-white text-[26px] max-[900px]:text-[23px] leading-[36px] hover:bg-[#F1B287] focus:bg-[#E46F50] disabled:bg-[#f0cac0] disabled:cursor-default",
     back: "w-[360px] bg-white text-[#E46F50] border-2 border-[#E46F50] hover:border-[#F1B287] hover:text-[#F1B287] text-[26px] max-[900px]:text-[23px] leading-[36px]",
     metodology:
       "max-w-[457px] w-full truncate bg-white text-[#E46F50] border-2 border-[#E46F50] hover:border-[#F1B287] hover:text-[#F1B287] text-[22px] max-[900px]:text-[22px] leading-[36px]",
