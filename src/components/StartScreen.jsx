@@ -12,7 +12,7 @@ function StartScreen({ onClick }) {
             <p>{startScreenData.description2}</p>
           </div>
 
-          <div className="max-[900px]:text-center max-[900px]:mb-[40px]">
+          <div className="flex max-[900px]:text-center max-[900px]:mb-[40px] max-[900px]:justify-center">
             <Button type={'start'} onClick={onClick} />
           </div>
         </div>

@@ -104,78 +104,101 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
       case "checkbox":
         return (
           <>
-  {data.selectOptions.map((option) => (
-    <div key={option.value} className="mb-[12px]">
-      {Object.hasOwn(option, "title") && (
-          <h4 className='text-lg font-bold mb-[12px]'>
-            {option.title}
-          </h4>
-      )}
-      
-      {Object.hasOwn(option, "options") ? (
-        <div className={data.id === 3 ? "grid gap-y-2" : ""}>
-          {option.options.map((op) => (
-            <div key={op.value} className={data.id === 3 ? "grid grid-cols-3 gap-4 items-center" : ""}>
-              <div className="flex items-center">
-                <input
-                  type="checkbox"
-                  id={op.value}
-                  name={op.value}
-                  className="mr-2 h-4 w-4"
-                  checked={answers.some(
-                    (a) => a.id === data.id && a.value === op.value
-                  )}
-                  onChange={(e) =>
-                    handleCheckboxChange(
-                      op.value,
-                      e.target.checked,
-                      op.score
-                    )
-                  }
-                />
-                <label htmlFor={op.value} className="text-base">
-                  {op.value}
-                </label>
+            {data.selectOptions.map((option) => (
+              <div key={option.value} className="mb-[12px]">
+                {Object.hasOwn(option, "title") && (
+                  <h4 className="text-lg font-bold mb-[12px]">
+                    {option.title}
+                  </h4>
+                )}
+
+                {Object.hasOwn(option, "options") ? (
+                  <div className={data.id === 3 ? "grid gap-y-2" : ""}>
+                    {option.options.map((op) => (
+                      <div
+                        key={op.value}
+                        className={
+                          data.id === 3
+                            ? "grid grid-cols-3 gap-4 items-center"
+                            : ""
+                        }
+                      >
+                        <div className="flex items-center">
+                          <input
+                            type="checkbox"
+                            id={op.value}
+                            name={op.value}
+                            className="mr-2 h-4 w-4"
+                            checked={answers.some(
+                              (a) => a.id === data.id && a.value === op.value
+                            )}
+                            onChange={(e) =>
+                              handleCheckboxChange(
+                                op.value,
+                                e.target.checked,
+                                op.score
+                              )
+                            }
+                          />
+                          <label htmlFor={op.value} className="text-base">
+                            {op.value}
+                          </label>
+                        </div>
+                        {data.id === 3 && (
+                          <div className="text-right text-base font-medium">
+                            <p className="text-left">
+                              ({op.score}{" "}
+                              {op.score === 1
+                                ? "балл"
+                                : op.score >= 2 && op.score <= 4
+                                ? "балла"
+                                : "баллов"}
+                              )
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="grid auto-cols-max grid-flow-col items-center">
+                    <input
+                      type="checkbox"
+                      id={option.value}
+                      name={option.value}
+                      className="mr-2 h-4 w-4 "
+                      checked={answers.some(
+                        (a) => a.id === data.id && a.value === option.value
+                      )}
+                      onChange={(e) =>
+                        handleCheckboxChange(
+                          option.value,
+                          e.target.checked,
+                          option.score
+                        )
+                      }
+                    />
+                    <label htmlFor={option.value} className="mr-[30px]">
+                      {option.value}
+                    </label>
+                    <p className="text-left">
+                      ({option.score}{" "}
+                      {option.score === 1
+                        ? "балл"
+                        : option.score >= 2 && option.score <= 4
+                        ? "балла"
+                        : "баллов"}
+                      )
+                    </p>
+                  </div>
+                )}
               </div>
-              {data.id === 3 && (
-                <div className="text-right text-base font-medium">
-                 <p className="text-left">({op.score} {op.score === 1? 'балл' : (op.score >= 2 && op.score <= 4) ? 'балла' : 'баллов'})</p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      ) : (
-          <div className="grid auto-cols-max grid-flow-col items-center">
-            <input
-              type="checkbox"
-              id={option.value}
-              name={option.value}
-              className="mr-2 h-4 w-4 "
-              checked={answers.some(
-                (a) => a.id === data.id && a.value === option.value
-              )}
-              onChange={(e) =>
-                handleCheckboxChange(
-                  option.value,
-                  e.target.checked,
-                  option.score
-                )
-              }
-            />
-            <label htmlFor={option.value} className="mr-[30px]">
-              {option.value}
-            </label>
-            <p className="text-left">({option.score} {option.score === 1? 'балл' : (option.score >= 2 && option.score <= 4) ? 'балла' : 'баллов'})</p>
-          </div>
-      )}
-    </div>
-  ))}
-</>
+            ))}
+          </>
         );
       case "input":
         return (
-          <div className="max-[900px]:flex max-[900px]:items-center max-[900px]:flex-col">
+          <div className="w-full max-w-[386px] max-[900px]:flex max-[900px]:flex-col">
             <Input
               value={currentAnswer?.value ?? ""}
               onChange={(e) => handleInputChange(e.target.value)}
@@ -199,7 +222,7 @@ function QuestionScreen({ data, questionsLength, onClickNext, onClickBack }) {
                   key={option.value}
                   value={option.value}
                   className="text-black bg-white hover:bg-[#E46F50] checked:bg-[#E46F50]"
-                  >
+                >
                   {option.value}
                 </option>
               ))}
