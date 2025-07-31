@@ -14,7 +14,7 @@ function Button({ type = null, onClick, disabled = false }) {
   };
 
   const icons = {
-    next: { src: "src/assets/next.png", alt: "next", className: "ml-[12px]" },
+    next: { src: "public/next.png", alt: "next", className: "ml-[12px]" },
     back: {
       src: "src/assets/back.png",
       alt: "back",
